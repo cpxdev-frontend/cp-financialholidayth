@@ -195,7 +195,7 @@ function myFunction() {
     })
     .then(response => response.json())
     .then(req => {
-        document.getElementById("name").innerHTML = req.asname;
+        document.getElementById("name").innerHTML = req.asname.replace('-AS', '').replace('-AP', '');;
         ms = 30000
     })
     .catch((error) => {
