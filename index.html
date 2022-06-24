@@ -234,7 +234,7 @@ if (navigator.geolocation) {
           setInterval(function () {
             document.getElementById("spd").innerHTML= (geo.spd != null && geo.spd >= 1 ? (geo.spd * 3.6).toFixed(2) : '0') + ' KM/H'
             document.getElementById("deg").innerHTML= Direction(geo.deg)
-          }, 500);
+          }, 1);
       }
         
       }, 1);
