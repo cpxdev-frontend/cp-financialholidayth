@@ -25,47 +25,43 @@
     <h2 class="card-title">My locator</h2>
     <h6 class="card-title" id="name"></h6>
     <small class="text-muted" id="upt"></small>
-    <div class="card-text" id="demo" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne"><span class="fas fa-circle-notch fa-spin"></span> Loading</div>
-    <div class="accordion mt-2" id="accordionExample">
-      <div class="card">
+    <div class="card-text" id="demo"><span class="fas fa-circle-notch fa-spin"></span> Loading</div>
+    <div class="card">
     
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body">
-            <table class="table table-borderless">
-              <tbody>
-                <tr>
-                  <th scope="row">Full Address</th>
-                  <td id="add"></td>
-                </tr>
-                <tr>
-                  <th scope="row">Coodinate</th>
-                  <td id="coo"></td>
-                </tr>
-                <tr>
-                  <th scope="row">Movement Speed</th>
-                  <td id="spd"></td>
-                </tr>
-                <tr>
-                  <th scope="row">Direction</th>
-                  <td id="deg"></td>
-                </tr>
-                <tr>
-                  <th scope="row">Temperature</th>
-                  <td id="temp"></td>
-                </tr>
-                <tr>
-                  <th scope="row">AQI Index</th>
-                  <td id="aqi"></td>
-                </tr>
-                <tr>
-                  <th scope="row">Air Quality (PM 2.5)</th>
-                  <td id="pm"></td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="card-body">
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <th scope="row">Full Address<br/><button type="button" onclick="myFunction();" class="btn btn-outline-primary">Copy</button></th>
+              <td id="add"></td>
+            </tr>
+            <tr>
+              <th scope="row">Coodinate</th>
+              <td id="coo"></td>
+            </tr>
+            <tr>
+              <th scope="row">Movement Speed</th>
+              <td id="spd"></td>
+            </tr>
+            <tr>
+              <th scope="row">Direction</th>
+              <td id="deg"></td>
+            </tr>
+            <tr>
+              <th scope="row">Temperature</th>
+              <td id="temp"></td>
+            </tr>
+            <tr>
+              <th scope="row">AQI Index</th>
+              <td id="aqi"></td>
+            </tr>
+            <tr>
+              <th scope="row">Air Quality (PM 2.5)</th>
+              <td id="pm"></td>
+            </tr>
+          </tbody>
+        </table>
 
-          </div>
-        </div>
       </div>
     </div>
     
@@ -87,6 +83,21 @@ function AQIProcess(aqi) {
   } else if (aqi > 300) {
     return "Hazardous (Critical Zone)"
   }
+}
+
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("add");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Full address has been copied on your clipboard");
 }
 
 function Direction(deg) {
