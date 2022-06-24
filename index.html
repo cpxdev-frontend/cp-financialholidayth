@@ -26,7 +26,7 @@
     <h6 class="card-title" id="name"></h6>
     <small class="text-muted" id="upt"></small>
     <div class="card-text" id="demo"><span class="fas fa-circle-notch fa-spin"></span> Loading</div>
-    <div class="card mt-2">
+    <div class="card">
     
       <div class="card-body">
         <table class="table table-borderless">
@@ -91,7 +91,7 @@ function myFunction() {
 
   /* Select the text field */
   copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  copyText.setSelectionRange(0, 9999999999999); /* For mobile devices */
 
    /* Copy the text inside the text field */
   navigator.clipboard.writeText(copyText.value);
