@@ -141,7 +141,7 @@ function myFunction() {
     })
     .then(response => response.json())
     .then(req => {
-        document.getElementById("demo").innerHTML = req.address[Object.keys(req.address)[0]];
+        document.getElementById("demo").innerHTML = req.address[Object.keys(req.address)[0]].length  > 3 ? req.address[Object.keys(req.address)[0]] : req.address[Object.keys(req.address)[1]];
         document.getElementById("upt").innerHTML='Update in: '+new Date().toLocaleString()
         document.getElementById("add").innerHTML = req.display_name
         ms = 30000
