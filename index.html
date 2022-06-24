@@ -87,14 +87,9 @@ function AQIProcess(aqi) {
 
 function getclip() {
   /* Get the text field */
-  var copyText = document.getElementById("add");
-
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 9999999999999); /* For mobile devices */
 
    /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
+  navigator.clipboard.writeText(document.getElementById("add").innerHTML);
 
   /* Alert the copied text */
   alert("Full address has been copied on your clipboard");
