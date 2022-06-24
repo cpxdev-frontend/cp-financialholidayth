@@ -32,7 +32,7 @@
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <th scope="row">Full Address<br/><button type="button" onclick="myFunction()" class="btn btn-outline-primary">Copy</button></th>
+              <th scope="row">Full Address<br/><button type="button" onclick="getclip()" class="btn btn-outline-primary">Copy</button></th>
               <td id="add"></td>
             </tr>
             <tr>
@@ -85,7 +85,7 @@ function AQIProcess(aqi) {
   }
 }
 
-function myFunction() {
+function getclip() {
   /* Get the text field */
   var copyText = document.getElementById("add");
 
