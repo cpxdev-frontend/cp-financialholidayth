@@ -84,6 +84,20 @@ function AQIProcess(aqi) {
     return "Hazardous (Critical Zone)"
   }
 }
+	
+function GetUrl() {
+	if (Math.floor(Math.random() * 2) == 0) {
+          return {
+             ul: "https://cpxapiweb2.azurewebsites.net",
+             nme: "Worldwide (Zone 2)"
+         }
+     } else {
+          return {
+             ul: "https://cpxapiweb.azurewebsites.net",
+             nme: "Worldwide (Zone 1)"
+         }
+     }
+}
 
 function getclip() {
   /* Get the text field */
@@ -133,7 +147,7 @@ function error(err) {
 }
 function myFunction() {
   document.getElementById("demo").innerHTML = '<span class="fas fa-circle-notch fa-spin"></span> Loading'
-	fetch('https://cpxapiweb.azurewebsites.net/locator/getlocate?lat=' + geo.lat + '&lon='+ geo.lon, {
+	fetch(GetUrl() + '/locator/getlocate?lat=' + geo.lat + '&lon='+ geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -153,7 +167,7 @@ function myFunction() {
     });
 
     //Weather
-    fetch('https://cpxapiweb.azurewebsites.net/locator/getweather?lat=' +geo.lat+'&lon=' + geo.lon, {
+    fetch(GetUrl() + '/locator/getweather?lat=' +geo.lat+'&lon=' + geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -172,7 +186,7 @@ function myFunction() {
     });
 
     //AQI
-    fetch('https://cpxapiweb.azurewebsites.net/locator/getaqi?lat='+ geo.lat+'&lon='+ geo.lon, {
+    fetch(GetUrl() + '/locator/getaqi?lat='+ geo.lat+'&lon='+ geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -193,7 +207,7 @@ function myFunction() {
     });
 
     //Info
-    fetch('https://cpxapiweb.azurewebsites.net/locator/getnet', {
+    fetch(GetUrl() + '/locator/getnet', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
