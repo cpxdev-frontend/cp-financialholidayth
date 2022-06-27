@@ -147,7 +147,7 @@ function error(err) {
 }
 function myFunction() {
   document.getElementById("demo").innerHTML = '<span class="fas fa-circle-notch fa-spin"></span> Loading'
-	fetch(GetUrl() + '/locator/getlocate?lat=' + geo.lat + '&lon='+ geo.lon, {
+	fetch(GetUrl().ul + '/locator/getlocate?lat=' + geo.lat + '&lon='+ geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -167,7 +167,7 @@ function myFunction() {
     });
 
     //Weather
-    fetch(GetUrl() + '/locator/getweather?lat=' +geo.lat+'&lon=' + geo.lon, {
+    fetch(GetUrl().ul + '/locator/getweather?lat=' +geo.lat+'&lon=' + geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ function myFunction() {
     });
 
     //AQI
-    fetch(GetUrl() + '/locator/getaqi?lat='+ geo.lat+'&lon='+ geo.lon, {
+    fetch(GetUrl().ul + '/locator/getaqi?lat='+ geo.lat+'&lon='+ geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -207,7 +207,7 @@ function myFunction() {
     });
 
     //Info
-    fetch(GetUrl() + '/locator/getnet', {
+    fetch(GetUrl().ul + '/locator/getnet', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
