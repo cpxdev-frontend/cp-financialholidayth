@@ -133,7 +133,7 @@ function error(err) {
 }
 function myFunction() {
   document.getElementById("demo").innerHTML = '<span class="fas fa-circle-notch fa-spin"></span> Loading'
-	fetch('https://apiweb.cpxdev.tk/locator/getlocate?lat=' + geo.lat + '&lon='+ geo.lon, {
+	fetch('https://cpxapiweb.azurewebsites.net/locator/getlocate?lat=' + geo.lat + '&lon='+ geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ function myFunction() {
     });
 
     //Weather
-    fetch('https://apiweb.cpxdev.tk/locator/getweather?lat=' +geo.lat+'&lon=' + geo.lon, {
+    fetch('https://cpxapiweb.azurewebsites.net/locator/getweather?lat=' +geo.lat+'&lon=' + geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -172,7 +172,7 @@ function myFunction() {
     });
 
     //AQI
-    fetch('https://apiweb.cpxdev.tk/locator/getaqi?lat='+ geo.lat+'&lon='+ geo.lon, {
+    fetch('https://cpxapiweb.azurewebsites.net/locator/getaqi?lat='+ geo.lat+'&lon='+ geo.lon, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -193,7 +193,7 @@ function myFunction() {
     });
 
     //Info
-    fetch('https://apiweb.cpxdev.tk/locator/getnet', {
+    fetch('https://cpxapiweb.azurewebsites.net/locator/getnet', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
