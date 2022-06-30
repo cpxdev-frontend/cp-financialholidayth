@@ -261,7 +261,7 @@ if (navigator.geolocation) {
     navigator.geolocation.watchPosition(showPosition, error);
     
     var start = setInterval(function () {
-      if (geo.lat != null &&  geo.lon != null) {
+      if (geo.lat != null &&  geo.lon != null && GetUrl().ul != '') {
         clearInterval(start)
         document.getElementById("coo").innerHTML=geo.lat + ', ' + geo.lon
         myFunction()
