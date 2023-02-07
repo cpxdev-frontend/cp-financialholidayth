@@ -222,24 +222,6 @@ function myFunction() {
         document.getElementById("pm").innerHTML = 'PM2.5 Not Found'
       ms=10000
     });
-
-    //Info
-    fetch(GetUrl().ul + '/locator/getnet', {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    .then(response => response.json())
-    .then(req => {
-        document.getElementById("name").innerHTML = req.asname.replace('-AS', '');
-        ms = 30000
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-      document.getElementById("name").innerHTML='Not found Network Info'
-      ms=10000
-    });
 }
   
   function showPosition(position) {
@@ -256,16 +238,35 @@ if (navigator.geolocation) {
       if (geo.lat != null &&  geo.lon != null && GetUrl().ul != '') {
         clearInterval(start)
         document.getElementById("coo").innerHTML=geo.lat + ', ' + geo.lon
-        myFunction()
 
-        setInterval(function () {
-            document.getElementById("coo").innerHTML=geo.lat + ', ' + geo.lon
+         //Info
+        fetch(GetUrl().ul + '/locator/getnet', {
+          method: 'POST', // or 'PUT'
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        .then(response => response.json())
+        .then(req => {
+            document.getElementById("name").innerHTML = req.asname.replace('-AS', '');
+            ms = 30000
+
             myFunction()
-          }, ms);
-          setInterval(function () {
-            document.getElementById("spd").innerHTML= (geo.spd != null && geo.spd >= 1 ? (geo.spd * 3.6).toFixed(2) : '0') + ' KM/H'
-            document.getElementById("deg").innerHTML= Direction(geo.deg)
-          }, 1);
+
+            setInterval(function () {
+                document.getElementById("coo").innerHTML=geo.lat + ', ' + geo.lon
+                myFunction()
+              }, ms);
+              setInterval(function () {
+                document.getElementById("spd").innerHTML= (geo.spd != null && geo.spd >= 1 ? (geo.spd * 3.6).toFixed(2) : '0') + ' KM/H'
+                document.getElementById("deg").innerHTML= Direction(geo.deg)
+              }, 1);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          document.getElementById("name").innerHTML='Not found Network Info'
+          ms=10000
+        });
       }
         
       }, 1);
