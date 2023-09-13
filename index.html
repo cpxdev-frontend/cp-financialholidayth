@@ -70,7 +70,7 @@ function ajaxRequest(params) {
   .then(response => response.json())
     .then(data => {
       unix = data.currentTime
-      const link = "https://www.bot.or.th/th/financial-institutions-holiday.html'
+      const link = "https://www.bot.or.th/th/financial-institutions-holiday.html"
       document.getElementById("moredesc").innerHTML = '3. ข้อมูลอาจมีการอัปเดตล่าช้า ขึ้นอยู่กับทาง ธปท. สามารถตรวจสอบรายละเอียดเพิ่มเติมได้ที่ <a href="' + link +'" target="_blank">'+ link+'</a>'
       document.getElementById("currentmonth").innerHTML = "ประจำเดือน" + moment(data.month, 'YYYY-MM').local().lang('th').format('MMMM YYYY');
       const currentholiday = data.data.result.data.filter(x => x.Date.includes(moment(data.month, 'YYYY-MM').local().format('YYYY-MM')))
