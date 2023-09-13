@@ -64,7 +64,7 @@ document.title = 'ประกาศวันหยุดธนาคาร'
  let unix = moment.unix()
  document.getElementById("copyright").innerHTML = "Copyright " + moment().format('YYYY') +" CPXDev Studio. Allright Reserved"
 function ajaxRequest(params) {
-  fetch('https://cpxdevapi.azurewebsites.net/bot/holiday', {
+  fetch('https://cpxdevservice.onrender.com/bot/holiday', {
   method: 'post'
 })
   .then(response => response.json())
